@@ -47,3 +47,19 @@ In this way you can use the following tags depending on the tests you need to ru
 health_check, workflow, regression, smoke, get-method, post-method, put-method, patch-method,
 delete-method, status-code:all, status-code:200, status-code:201, status-code:400, status-code:403,
 status-code:404, status-code:405, status-code:500
+
+### Generate report
+Once you have run the tests you can generate the Allure report by running the following command:
+```
+$ allure generate build/allure-results --clean
+```
+After running the above command successfully you will be able to find the report in the following path: `your-project-path/allure-report`
+
+### Open the report
+Locally you can open the report in two ways:
+- Using the command:
+```
+$ allure open /your-project-path/allure-report
+```
+The command starts a local web server and show the report directory's contents. Opens the report in your default browser.
+- Opening the report file `/your-project-path/allure-report/index.html` in the browser of your choice. This shows the static contents of the report directory without starting any local web server.
