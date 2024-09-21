@@ -34,11 +34,11 @@ Values can be consulted on the following restul-booker [apidoc](https://restful-
 ```
 $ ./gradlew
 ```
-- Run all tests inside class using junit tags (@Tags):
+- Run all tests inside class using Junit5 tags (@Tags):
 ```
 $ ./gradlew -DincludeTags="regression"
 ```
-- Run an specific test method (@Test) inside class using junit tags (@Tag):
+- Run a specific test method (@Test) inside class using Junit5 tags (@Tag):
 ```
 $ ./gradlew -DincludeTags="status_code:200"
 ```
