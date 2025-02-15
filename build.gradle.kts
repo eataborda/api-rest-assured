@@ -17,7 +17,7 @@ repositories {
     mavenCentral()
 }
 
-val allureVersion = "2.29.0"
+val allureVersion = "2.29.1"
 val aspectJVersion = "1.9.22.1"
 
 val agent: Configuration by configurations.creating {
@@ -69,16 +69,16 @@ tasks.withType<Test> {
 
 dependencies {
     agent("org.aspectj:aspectjweaver:${aspectJVersion}")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.3")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.3")
-    testImplementation ("io.rest-assured:rest-assured:5.5.0")
-    testImplementation("io.rest-assured:json-path:5.5.0")
-    testImplementation ("io.rest-assured:json-schema-validator:5.5.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.4")
+    testImplementation ("io.rest-assured:rest-assured:5.5.1")
+    testImplementation("io.rest-assured:json-path:5.5.1")
+    testImplementation ("io.rest-assured:json-schema-validator:5.5.1")
     testImplementation(platform("io.qameta.allure:allure-bom:$allureVersion"))
     testImplementation("io.qameta.allure:allure-junit5:$allureVersion")
     testImplementation("io.qameta.allure:allure-rest-assured:$allureVersion")
-    testImplementation("org.assertj:assertj-core:3.26.3")
-    testImplementation("ch.qos.logback:logback-classic:1.5.12")
-    testImplementation("ch.qos.logback:logback-core:1.5.12")
-    testImplementation("com.google.code.gson:gson:2.11.0")
+    testImplementation("org.assertj:assertj-core:3.27.3")
+    testImplementation("ch.qos.logback:logback-classic:1.5.16")
+    testImplementation("ch.qos.logback:logback-core:1.5.16")
+    testImplementation("com.google.code.gson:gson:2.12.1")
 }
