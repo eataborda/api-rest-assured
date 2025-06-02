@@ -25,19 +25,15 @@ public class HeaderSteps {
 
     public void validateResponseHeadersHasExpectedFields(Response response) {
         assertion = new SoftAssertions();
-        validateHeaderFieldSize(11, response.getHeaders().size());
+        validateHeaderFieldSize(10, response.getHeaders().size());
         validateStringFieldType(
                 HeaderNames.SERVER.getValue(),
-                HeaderValues.COWBOY.getValue(),
+                HeaderValues.HEROKU.getValue(),
                 response.getHeader(HeaderNames.SERVER.getValue()));
         validateStringFieldType(
                 HeaderNames.NEL.getValue(),
                 HeaderValues.NEL_VALUE.getValue(),
                 response.getHeader(HeaderNames.NEL.getValue()));
-        validateStringFieldType(
-                HeaderNames.CONNECTION.getValue(),
-                HeaderValues.KEEP_ALIVE.getValue(),
-                response.getHeader(HeaderNames.CONNECTION.getValue()));
         validateStringFieldType(
                 HeaderNames.X_POWERED_BY.getValue(),
                 HeaderValues.EXPRESS.getValue(),
@@ -66,7 +62,7 @@ public class HeaderSteps {
                 response.getHeader(HeaderNames.DATE.getValue()));
         validateStringFieldType(
                 HeaderNames.VIA.getValue(),
-                HeaderValues.VEGUR_1_1.getValue(),
+                HeaderValues.HEROKU_ROUTER_1_1.getValue(),
                 response.getHeader(HeaderNames.VIA.getValue()));
         assertion.assertAll();
     }
