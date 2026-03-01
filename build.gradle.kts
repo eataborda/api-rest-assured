@@ -9,7 +9,7 @@ version = "1.0-SNAPSHOT"
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
 
@@ -17,8 +17,11 @@ repositories {
     mavenCentral()
 }
 
-val allureVersion = "2.29.1"
-val aspectJVersion = "1.9.24"
+val allureVersion = "2.33.0"
+val aspectJVersion = "1.9.25.1"
+val restAssuredVersion = "6.0.0"
+val junitJupiterVersion = "6.0.3"
+val logbackVersion = "1.5.32"
 
 val agent: Configuration by configurations.creating {
     isCanBeConsumed = true
@@ -69,16 +72,16 @@ tasks.withType<Test> {
 
 dependencies {
     agent("org.aspectj:aspectjweaver:${aspectJVersion}")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.13.0")
-    testImplementation ("io.rest-assured:rest-assured:5.5.5")
-    testImplementation("io.rest-assured:json-path:5.5.5")
-    testImplementation ("io.rest-assured:json-schema-validator:5.5.5")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+    testImplementation ("io.rest-assured:rest-assured:$restAssuredVersion")
+    testImplementation("io.rest-assured:json-path:$restAssuredVersion")
+    testImplementation ("io.rest-assured:json-schema-validator:$restAssuredVersion")
     testImplementation(platform("io.qameta.allure:allure-bom:$allureVersion"))
     testImplementation("io.qameta.allure:allure-junit5:$allureVersion")
     testImplementation("io.qameta.allure:allure-rest-assured:$allureVersion")
-    testImplementation("org.assertj:assertj-core:3.27.3")
-    testImplementation("ch.qos.logback:logback-classic:1.5.18")
-    testImplementation("ch.qos.logback:logback-core:1.5.18")
-    testImplementation("com.google.code.gson:gson:2.13.1")
+    testImplementation("ch.qos.logback:logback-classic:$logbackVersion")
+    testImplementation("ch.qos.logback:logback-core:$logbackVersion")
+    testImplementation("com.google.code.gson:gson:2.13.2")
+    testImplementation("org.assertj:assertj-core:3.27.7")
 }
